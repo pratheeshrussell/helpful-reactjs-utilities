@@ -60,8 +60,6 @@ function mapRoutesToComponents(routes: CoreRoutes): ProcessedRoute[] {
     let currentProcessingIndex = 0; 
     if (processingIndex.length < stack.length) {
       processingIndex[lastStackIndex] = 0; // first item
-    } else {
-      processingIndex[lastStackIndex] += 1;
     }
     // could be processingIndex[lastStackIndex]
     // OR processingIndex[processingIndex.length -1]
@@ -118,6 +116,7 @@ function mapRoutesToComponents(routes: CoreRoutes): ProcessedRoute[] {
           processingIndex.pop();
           //break;
         }
+        processingIndex[lastStackIndex] += 1;
       }
     }
   }
